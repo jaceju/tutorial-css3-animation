@@ -1,0 +1,619 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>CSS3 動畫基礎</title>
+
+</head>
+<body>
+<h1>CSS3 動畫基礎</h1>
+
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+
+<p>在 JSConf.Asia 2013 ， Lea Verou 介紹了 <a href="http://lea.verou.me/css-4d/#intro">CSS in the 4th dimension</a>  (<a href="https://www.youtube.com/watch?v=NTJUFQmHbvc">影片</a>) ，引發了整個 Web 界對 CSS 動畫的期盼；在 <a href="http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html">CSS動畫簡介</a>一文也已經把重點整理好了。</p>
+
+<p>以下我們將會介紹主要兩個 CSS3 在動畫的屬性： Transition 與 Animation ，並配合實例來練習這些技術，後面我也會介紹一些不錯的相關開發工具。</p>
+
+<h2>Transition</h2>
+
+<p>在以往 HTML 元素在兩種外觀之間的變換，只能從一種外觀直接跳到另一種外觀，瀏覽者並沒有辦法感受到這兩種外觀中間平滑的轉換，造成了視覺上的不適。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="gwyao" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/gwyao/'>例：在滑鼠移過時，方塊的高度和寬度變化。</a></p>
+
+
+<h3>基本的 transition</h3>
+
+<p>而 CSS 為了補足這方面的視覺轉換特效，特別加入 <code>transition</code> 屬性。 一個簡易的動畫效果就是在想要變化的狀態上，加入一個 <code>transition</code> 屬性，而其值為變化需歷時的秒數。</p>
+
+<pre><code>div:hover {
+    ...
+    transition: 1s;
+}
+</code></pre>
+
+<p>這麼一來， <code>transition</code> 就會自動幫我們補足中間的過場動畫。例如我們希望上面的例子能平順地轉換，歷時一秒：</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="AGiEa" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/AGiEa/'>例：加入 transition 後的效果</a></p>
+
+
+<p>我們也可以讓高度以外的屬性有動畫效果，例如顏色：</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="pwgnc" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/pwgnc/'>例：用 transition 改變顏色</a></p>
+
+
+<h3><code>transition</code> 屬性詳解</h3>
+
+<p><code>transition</code> 屬性其實跟 <code>font</code> 或 <code>background</code> 屬性一樣是簡寫屬性，它是以下四個屬性的總和：</p>
+
+<ul>
+<li><code>transition-property</code>: 要做變換的 CSS 屬性</li>
+<li><code>transition-duration</code>: 變換需要的時間，單位為 <code>s</code> 或 <code>ms</code></li>
+<li><code>transition-delay</code>: 延遲多久後開始變換，單位為 <code>s</code> 或 <code>ms</code></li>
+<li><code>transition-timing-function</code>: 稱為 Timing Funciton ，用名稱來定義變換時的加速度。</li>
+</ul>
+
+
+<p>這些屬性可以分開寫，也可以將它們的值同時寫在 <code>transition</code> 屬性裡；唯一要注意的是 <code>transition-duration</code> 與 <code>transition-delay</code> 的值寫在一起時有前述的順序關係。前面例子中的 <code>transition: 1s</code> ，其 <code>1s</code> 即為 <code>transition-duration</code> 的值。</p>
+
+<h3><code>transition-property</code> 可使用 transition 的屬性</h3>
+
+<p>不是所有 CSS 屬性都可以使用 <code>transition</code> ，可以參考這篇 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">CSS animated properties</a> 得知有哪些屬性可以使用 <code>transition</code> 。</p>
+
+<p><code>transition</code> 預設是對所有可套用的屬性做轉場效果，也就是關鍵字 <code>all</code> ；但其實也可以只針對某個屬性做 <code>transition</code> 變化，其他屬性則維持原來的直接變化。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="zpcEG" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/zpcEG/'>例：只對單一屬性加入 transition</a></p>
+
+
+<h3>針對不同屬性同時做 transition</h3>
+
+<p>如果希望對兩個以上的屬性做 <code>transition</code> ，可是又不希望影響其他屬性時，可以用逗號 <code>,</code> 將要做 transition 的屬性分隔開來。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="ifbIG" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/ifbIG/'>例：對不同屬性同時做 transition</a></p>
+
+
+<h3><code>transition-delay</code> 延遲變換</h3>
+
+<p>有時候我們需要先變換一個屬性，再變換另一個屬性，這時候就需要對後者加入一個延遲時間；它需要加在原先我們定義好的歷時時間之後。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="xneaw" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/xneaw/'>例：先變換一個屬性，再變換另一個屬性</a></p>
+
+
+<h3><code>transition-timing-function</code> Timing Funciton</h3>
+
+<p>Timing Funciton 包含數種模式，下圖可以看出它們的加速度曲線。</p>
+
+<p><img src="http://letrainde13h37.fr/wp-content/uploads/2012/09/trTimingFn.png" alt="" /></p>
+
+<ul>
+<li><code>linear</code>: 匀速</li>
+<li><code>ease</code>: 急加速後減速 (預設值)</li>
+<li><code>ease-in</code>: 加速</li>
+<li><code>ease-out</code>: 减速</li>
+<li><code>ease-in-out</code>: 較平緩的 <code>ease</code></li>
+<li><code>cubic-bezier</code>: 自定義速度模式</li>
+</ul>
+
+
+<h3>cubic-bezier 函式</h3>
+
+<p>利用貝茲曲線函式來定義加速曲線，可以直接使用線上工具 <a href="http://cubic-bezier.com/" target="_blank">cubic-bezier()</a> 來找出需要的數值。</p>
+
+<h3>雙向的 transition</h3>
+
+<p>Transition 的效果只會作用在有加入 <code>transition</code> 屬性的那個狀態，一旦要回復至原來的狀態時，就會失去 Transition 的平順效果了。這時我們需要對原先的狀態，也加入 <code>transition</code> 。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="JhIux" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/JhIux/'>例：雙向的 transition</a></p>
+
+
+<h3>Transition 的限制</h3>
+
+<p><code>transition</code> 的開始和結束都必須是具體數值；例如以下的 CSS 屬性值之間是無法被計算的，就無法使用 <code>transition</code> ：</p>
+
+<ul>
+<li> <code>height: auto</code> (不確定的值) 至 <code>height: 100px</code> (具體數值)</li>
+<li> <code>display: none</code> 至 <code>display: block</code></li>
+<li> <code>background: url(foo.jpg)</code> 至 <code>background: url(bar.jpg)</code></li>
+</ul>
+
+
+<p data-height="268" data-theme-id="0" data-slug-hash="DgFKd" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/DgFKd/'>例： transition 無法作用的狀況</a></p>
+
+
+<p>另外 <code>transition</code> 需要事件來觸發它的動作，所以沒辦法在一進頁面自動產生效果。所以如果不透過 JavaScript 事件處理的話，就只能配合與事件有關的 Pseudo Classes (偽類別，即 <code>:hover</code> 、 <code>:focus</code> 等) 來呈現效果了。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="jAaxk" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/jAaxk/'>例：搭配 :focus 偽類別</a></p>
+
+
+<h3>搭配 jQuery</h3>
+
+<p>如果搭配 jQuery 等可以操作 DOM 元素的 library ，我們就可以做更複雜的操作。</p>
+
+<p data-height="300" data-theme-id="0" data-slug-hash="lcCHb" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/lcCHb/'>例：透過切換 class 來做 transition</a></p>
+
+
+<h3>瀏覽器支援</h3>
+
+<p>目前包含 IE 10+ 的主流瀏覽器都已經支援 <code>transition</code> ，可參考 <a href="http://caniuse.com/#search=transition">Can I use</a> 。</p>
+
+<h2>Animation</h2>
+
+<p>雖然 <code>transition</code> 屬性簡單易用，但也有上述的侷限。因此就有了 <code>animation</code> 這個屬性來彌補其不足。</p>
+
+<h3>基本的 Animation</h3>
+
+<p>最基本的 <code>animation</code> 要指定動畫持續的時間，還有動畫的名稱。</p>
+
+<pre><code>div:hover {
+  animation: 1s fat;
+}
+</code></pre>
+
+<p>而動畫的定義則是用 <code>@keyframes</code> 這個屬性，例如：</p>
+
+<pre><code>@keyframes fat {
+  0% { width: 100px; }
+  50% { width: 150px; }
+  100% { width: 200px; }
+}
+</code></pre>
+
+<p>在 <code>@keyframes</code> 中可以定義多個狀態，範圍可從 <code>0%</code> 至 <code>100%</code> 。另外 <code>0%</code> 可寫成 <code>from</code> ， <code>100%</code> 可寫成 <code>to</code> ，其他狀態還是使用數字百分比。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="pyngJ" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/pyngJ/'>例：基本的 animation</a></p>
+
+
+<h3><code>animation</code> 屬性詳解</h3>
+
+<p><code>animation</code> 屬性和 <code>transition</code> 屬性一樣，都是簡寫屬性。它代表以下屬性的總和：</p>
+
+<ul>
+<li><code>animation-name</code>: 動畫名稱</li>
+<li><code>animation-duration</code>: 播放一次動畫需要的時間，單位為 <code>s</code> 或 <code>ms</code></li>
+<li><code>animation-timing-function</code>: 動畫的加速度曲線</li>
+<li><code>animation-delay</code>: 延遲多久後啟始動畫</li>
+<li><code>animation-iteration-count</code>: 動畫播放次數，可用 <code>infinite</code></li>
+<li><code>animation-direction</code>: 動畫播放方向</li>
+<li><code>animation-fill-mode</code>: 指定動畫播放前後的狀態</li>
+<li><code>animation-play-state</code>: 指定動畫播放或暫停</li>
+</ul>
+
+
+<p>其中 <code>animation-duration</code> 、 <code>animation-timing-function</code> 、 <code>animation-delay</code> 可參考上面 <code>transition</code> 相似屬性的介紹。</p>
+
+<h3><code>animation-iteration-count</code> 播放次數</h3>
+
+<p>預設 <code>animation</code> 和 <code>transition</code> 一樣只會動作一次，但我們可以加入數字來指定動畫效果播放的次數。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="lqCjD" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/lqCjD/'>例：指定 animation 的播放次數</a></p>
+
+
+<p>或是以 <code>infinite</code> 這個關鍵字來無限次播放。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="fybqJ" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/fybqJ/'>例：無限次播放 animation</a></p>
+
+
+<h3><code>animation-direction</code> 播放方向</h3>
+
+<p>所謂的播放方向是指從動畫效果 0% 到 100% 的方向，同時也是預設的 <code>normal</code> 值。可供設定的值如下：</p>
+
+<ul>
+<li><code>normal</code> ：每次播放都是從 0% 至 100%</li>
+<li><code>reverse</code> ：每次播放都是從 100% 至 0%</li>
+<li><code>alternate</code> ：播放兩次以上的話，會從 0% 至 100% ，再從 100% 回到 0% ，以此類推</li>
+<li><code>alternate-reverse</code> ：跟 <code>alternate</code> 相反，會先從 100% 開始播放</li>
+</ul>
+
+
+<p><code>animation-direction: reverse</code> ：</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="vBtAd" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/vBtAd/'>例：animation 播放方向 reverse</a></p>
+
+
+<p><code>animation-direction: alternate</code> ：</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="bwkCf" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/bwkCf/'>例：animation 播放方向 alternate</a></p>
+
+
+<p><code>animation-direction: alternate-reverse</code> ：</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="kCfAE" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/kCfAE/'>例：animation 播放方向 alternate-reverse</a></p>
+
+
+<h3><code>animation-fill-mode</code> 動畫播放前後的狀態</h3>
+
+<p>如果想要控制動畫播放完後的最終狀態，可以用 <code>animation-fill-mode</code> 屬性，它可設定的值如下：</p>
+
+<ul>
+<li><code>none</code> ：回到未播放動畫效果前的狀態</li>
+<li><code>forwards</code> ：停在動畫的最後一個狀態上</li>
+<li><code>backwards</code> ：停在動畫的第一個狀態上 (實測不出來)</li>
+<li><code>both</code> ：視 <code>animation-direction</code> 來決定停在哪一個狀態上。</li>
+</ul>
+
+
+<p data-height="268" data-theme-id="0" data-slug-hash="fazAe" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/fazAe/'>例：指定 animation 播放後的狀態 forwards</a></p>
+
+
+<p>註： <code>backwards</code> 這個值我在 Chrome 和 Firefox 都試不出來。</p>
+
+<h3><code>animation-play-state</code> 指定動畫播放或暫停</h3>
+
+<p><code>animation-play-state</code> 有兩個屬性值： <code>running</code> 及 <code>paused</code> ，其中 <code>running</code> 是預設值。</p>
+
+<p>這個屬性必須獨立定義，無法被放在 <code>animation</code> 屬性裡。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="HhGqj" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/HhGqj/'>例：決定 animation 執行或暫停</a></p>
+
+
+<h3>瀏覽器支援</h3>
+
+<p><code>animation</code> 屬性目前在 IE 10+ 以上主流瀏覽器都可以執行，但採用 Webkit 引擎的瀏覽器必須加上 <code>-webkit-</code> 前綴字串。</p>
+
+<pre><code>div:hover {
+  -webkit-animation: 1s name;
+  animation: 1s name;
+}
+
+@-webkit-keyframes name {
+    ...
+}
+
+@keyframes name {
+    ...
+}
+</code></pre>
+
+<h2>實例</h2>
+
+<p>接下來我們用 Animation 搭配 Transform 來做簡單的旋轉動畫。 Transform 是用來讓 HTML 元素變形的屬性，雖然跟動畫沒有直接的關係，但它是可以套用動畫效果的。這邊我不打算詳細介紹它，只會用到旋轉的效果。</p>
+
+<p>它的語法如下：</p>
+
+<pre><code>div {
+    transform: rotate(θ);
+    transform-origin: x y;
+}
+</code></pre>
+
+<p><code>rotate(θ)</code> 是指讓指定元素以參考點為中心軸 2D 旋轉 θ 度， <code>transform-origin</code> 會將 <code>(x, y)</code> 設為參考點。當我們把 <code>transform: rotate(θ)</code> 放到 <code>@keyframes</code> 中時， <code>animation</code> 就會改變 <code>θ</code> 值來做出動畫效果。</p>
+
+<p>以下模擬簡單的太陽、地球、月亮的週期變化。</p>
+
+<p data-height="600" data-theme-id="0" data-slug-hash="gkdBx" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/gkdBx/'>範例：模擬太陽、地球、月亮的週期</a></p>
+
+
+<p>更酷的範例參考：</p>
+
+<ul>
+<li><a href="http://www.creativebloq.com/css3/animation-with-css3-712437">20 stunning examples of CSS3 animation</a></li>
+<li><a href="http://neography.com/experiment/circles/solarsystem/">Our Solar System</a></li>
+<li><a href="http://designscrazed.com/css3-animation-examples/">30 Best Creative CSS3 Animation Examples</a></li>
+<li><a href="http://goo.gl/SHWmEx">Codepen.io CSS Animation</a></li>
+</ul>
+
+
+<h2>開發工具</h2>
+
+<h3>CSS 3.0 Maker</h3>
+
+<p><a href="http://www.css3maker.com">CSS 3.0 Marker</a> 可以讓我們調整 CSS3 相關屬性的參數，並預覽效果。確認後就可以產生對應的 CSS 碼，套用到專案上。</p>
+
+<h3>Animate.css</h3>
+
+<p><a href="http://daneden.github.io/animate.css/">Animate.css</a> 這個 CSS framework 提供很多組已經定義好動畫效果的 CSS class ，讓我們可以直接套在 HTML 元素上，或是搭配 jQuery 來操作 class 來產生動畫效果。</p>
+
+<p data-height="268" data-theme-id="0" data-slug-hash="pDblC" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/pDblC/'>範例： Animation.css</a></p>
+
+
+<h3>Animate Mixin for Compass/SASS</h3>
+
+<p><a href="http://thecssguru.freeiz.com/animate/">Animate Mixin for Compass/SASS</a> 提供了一組很棒的 CSS3 Animation mixins ，讓我們可以直接套用。它其實就是從 Animation.css 移植過來的。</p>
+
+<h3>AniJS</h3>
+
+<p><a href="http://anijs.github.io/">AniJS</a> 是一個宣告式的 CSS 動畫 library ，它讓我們可以在 HTML 元素中加入一個 <code>data-anijs</code> 屬性，並用敘述式來定義動作事件、動畫效果、以及要作用在哪個元素上。</p>
+
+<p> <p data-height="268" data-theme-id="0" data-slug-hash="cEqhf" data-default-tab="result" class='codepen'><a href='http://codepen.io/jaceju/pen/cEqhf/'>範例： AniJS</a></p></p>
+</body>
+</html>
